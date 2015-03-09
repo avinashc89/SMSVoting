@@ -29,6 +29,7 @@ import com.tool.app.bean.Poll;
 
 
 @RestController
+@RequestMapping("/api/v1")
 public class SmsPollController {
 
 	SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
@@ -100,10 +101,10 @@ public class SmsPollController {
 				Moderator obj  = modMap.get(moderator_id);
 				obj.setEmail(mod.getEmail());
 				obj.setPassword(mod.getPassword());
-				return new ResponseEntity<String>(obj.toString(),HttpStatus.CREATED);
+				return new ResponseEntity<String>(obj.toString(),HttpStatus.OK);
 			}
 			else 
-				return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+				return new ResponseEntity<String>("Mpderator Id not found!!!",HttpStatus.NOT_FOUND);
 		}
 	}
 

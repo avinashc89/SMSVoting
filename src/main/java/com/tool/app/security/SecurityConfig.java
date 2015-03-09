@@ -24,8 +24,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
     		http												
     		.csrf().disable()	
     		.authorizeRequests()
-    		.antMatchers(HttpMethod.POST, "/moderators").permitAll()
-    		.antMatchers("/polls/*").permitAll()
+    		.antMatchers(HttpMethod.POST, "/api/v1/moderators").permitAll()
+    		.antMatchers("/api/v1/polls/*").permitAll()
     		.anyRequest().hasAnyRole("USER").and().httpBasic();
     		
     		/*
